@@ -1,0 +1,1 @@
+# cookie-cutter-generator

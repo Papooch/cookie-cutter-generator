@@ -1,4 +1,6 @@
 #!/bin/sh
+echo 1-$1 2-$2 3-$3
+
 name=$(basename $1 .svg)
 generated_folder_name=${2:-./generated/$name}
 
@@ -11,7 +13,10 @@ echo -- Copying "$1" to "$working_basename.svg"...
 cp "$1" "$working_basename.svg" || exit 1
 
 echo -- Generating filled SVG...
-./generate-fill.sh "$working_basename.svg" "$working_basename-fill.svg" || exit 1
+sh ./generate-fill.sh "$working_basename.svg" "$working_basename-fill.svg" || exit 1
 
 echo -- Generating 3D STL model...
-./generate-model.sh $working_basename && echo Done. || echo Failed. && exit 1
+sh ./generate-model.sh $working_basename || exit 1
+
+echo -- Done.
+exit 0

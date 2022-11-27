@@ -2,6 +2,7 @@
 input_file=$1
 output_file=${2:-$1-fill}
 
+# Generate a filled version of the SVG using Inkscape
 inkscape -g --actions="mcepl.ungroup-deep.noprefs;
     select-all;
     object-to-path;

@@ -1,4 +1,11 @@
-# Cookie Cutter Generator based on OpenSCAD
+# Cookie Cutter Generator
+
+A toolchain for generating 3D printable cookie cutters from a SVG image based on OpenSCAD and Inkscape.
+
+<img src="./generated/pig-walking/pig-walking.svg" alt="source-vector-image" width="250"/>
+<img src="./generated/pig-walking/pig-walking-preview.png" alt="3D-model-preview" width="250"/>
+
+The example generated STL can be found in [`generated/pig-walking/pig-waling-output.stl`](./generated/pig-walking/pig-walking-output.stl).
 
 ## Dependencies
 The following tools need to be available on the CLI, so the corresponding software has to be installed (see below for [docker build](#docker)):
@@ -37,7 +44,7 @@ args=(
     --privileged
     --name cookie-cutter-generator
     # map input folder
-    --volume $PWD/samples:/input
+    --volume $PWD/inputs:/input
     # map output folder
     --volume $PWD/generated:/output
         # built image name

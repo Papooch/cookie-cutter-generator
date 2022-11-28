@@ -5,7 +5,7 @@ docker run \
     --rm \
     --privileged \
     --name cookie-cutter-generator-$1 \
-    --volume $PWD/samples:/input \
+    --volume $PWD/inputs:/input \
     --volume $PWD/generated:/output \
         cookie-cutter-generator:latest \
         /input/$file_name.svg \

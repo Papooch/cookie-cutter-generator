@@ -50,7 +50,7 @@ args=(
 docker run $args[@]
 ```
 
-A convenience script is provided. It takes a name of the input file without the suffix a single parameter. The file must be located in the `samples` folder and the results are generated to the `generated/<name>` folder.
+A convenience script is provided. It takes a name of the input file without the suffix a single parameter. The file must be located in the `inputs` folder and the results are generated to the `generated/<name>` folder.
 ```
 ./generate-using-docker.sh <name>
 ```

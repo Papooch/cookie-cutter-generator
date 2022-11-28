@@ -20,7 +20,7 @@ This will generate the following files in the `output_folder`
 * `input_file-output.stl` - the generated STL model ready for 3D printing
 
 ## Docker
-A Dockerfile to build a Ubuntu image with all the necessary tools is provided, so you don't have to install anything on your machine. The size of the built image is about 
+A Dockerfile to build a Ubuntu image with all the necessary tools is provided, so you don't have to install anything on your machine. The built image is about 1 GB in size.
 
 Build it with the following command
 ```bash

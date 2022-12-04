@@ -58,7 +58,7 @@ docker run $args[@]
 ```
 
 A convenience script is provided. It takes a name of the input file without the suffix a single parameter. The file must be located in the `inputs` folder and the results are generated to the `generated/<name>` folder.
-```
+```bash
 ./generate-using-docker.sh <name>
 ```
 The advantage of this method is that you can run multiple generators in parallel to utilize all the processor cores:
@@ -68,4 +68,12 @@ The advantage of this method is that you can run multiple generators in parallel
     ./generate-using-docker.sh pig-sleeping &
     ./generate-using-docker.sh pig-snowball &
     ./generate-using-docker.sh pig-walking
+```
+
+### Windows
+
+A convenience PowerShell script to run the docker image on Windows is also provided
+
+```powershell
+./generate-using-docker.ps1 <name>
 ```

@@ -5,7 +5,7 @@ A toolchain for generating 3D printable cookie cutters from a SVG image based on
 <img src="./generated/pig-walking/pig-walking.svg" alt="source-vector-image" width="250"/>
 <img src="./generated/pig-walking/pig-walking-preview.png" alt="3D-model-preview" width="250"/>
 
-The example generated STL can be found in [`generated/pig-walking/pig-waling-output.stl`](./generated/pig-walking/pig-walking-output.stl).
+The example generated STL can be found in [`generated/pig-walking/pig-walking-output.stl`](./generated/pig-walking/pig-walking-output.stl).
 
 ## Dependencies
 The following tools need to be available on the CLI, so the corresponding software has to be installed (see below for [docker build](#docker)):
@@ -13,7 +13,7 @@ The following tools need to be available on the CLI, so the corresponding softwa
     [Inkscape 1.2+](https://inkscape.org/about/)
 * `openscad-nightly`  
     [OpenSCAD (developer preview)](https://openscad.org/downloads.html#snapshots). If installed as a Snap package, [additional file permissions may be needed](https://askubuntu.com/a/1109285/1593582).
-    The nightly version is currently needed, because it contains a drastic performance boost for generating models (generating the `pig-waling.svg` takes about 50 seconds as opposed to 30 minutes with the stable version)
+    The nightly version is currently needed, because it contains a drastic performance boost for generating models (generating the `pig-walking.svg` takes about 50 seconds as opposed to 30 minutes with the stable version)
 
 
 ## Usage

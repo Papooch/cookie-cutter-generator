@@ -6,8 +6,6 @@ preview_filename=${3:-$input_name-preview.png}
 # Generate a 3D SVG and a PNG preview using OpenSCAD
 openscad-nightly generator.scad \
 --enable=fast-csg \
---enable=fast-csg-trust-corefinement \
---enable=fast-csg-remesh \
 --enable=lazy-union \
 -o "$output_filename" \
 -o "$preview_filename" \

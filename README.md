@@ -17,17 +17,26 @@ The following tools need to be available on the CLI, so the corresponding softwa
 
 
 ## Usage
+Invoke the `run.sh` script while passing it the path to the generator script, the input SVG file and the output folder as parameters:
+
+There are several generator scripts available in the `generators/` folder:
+* `stamp` - the default one, generates an offset cutter and a stamp of the original SVG image
+* `outline` - generates a simple cutter with the exact outline of the original SVG image
+
+Example:
+
 ```bash
-./generate.sh path/to/input_file.svg path/to/output_folder
+./run.sh ./inputs/pig-walking.svg ./generated/pig-walking ./generators/stamp.scad
 ```
-This will generate the following files in the `output_folder`
-* `input_file.svg` - a copy of the original SVG
-* `input_file-fill.svg` - a filled version of the original SVG needed to support OpenSCAD generation
-* `input_file-preview.png` - an image preview of the generated STL
-* `input_file-output.stl` - the generated STL model ready for 3D printing
+
+This will generate the following files in the `generated/pig-walking/` folder:
+* `pig-walking.svg` - a copy of the original SVG
+* `pig-walking-fill.svg` - a filled version of the original SVG needed to support OpenSCAD generation
+* `pig-walking-stamp-preview.png` - an image preview of the generated STL
+* `pig-walking-stamp-output.stl` - the generated STL model ready for 3D printing
 
 ## Docker
-A Dockerfile to build a Ubuntu image with all the necessary tools is provided, so you don't have to install anything on your machine. The built image is about 1 GB in size.
+A Dockerfile to build a Ubuntu image with all the necessary tools is provided, so you don't have to install anything on your machine. The built image is about 1 GB in size (including both Inkscape and OpenSCAD).
 
 Build it with the following command
 ```bash
@@ -59,7 +68,7 @@ docker run $args[@]
 
 A convenience script is provided. It takes a name of the input file without the suffix a single parameter. The file must be located in the `inputs` folder and the results are generated to the `generated/<name>` folder.
 ```bash
-./generate-using-docker.sh <name>
+./generate-using-docker.sh <name> [<generator-name>]
 ```
 The advantage of this method is that you can run multiple generators in parallel to utilize all the processor cores:
 ```bash
@@ -75,5 +84,5 @@ The advantage of this method is that you can run multiple generators in parallel
 A convenience PowerShell script to run the docker image on Windows is also provided
 
 ```powershell
-./generate-using-docker.ps1 <name>
+./generate-using-docker.ps1 <name> [<generator-name>]
 ```

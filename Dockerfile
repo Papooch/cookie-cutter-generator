@@ -39,7 +39,7 @@ WORKDIR /app
 ################
 # Script to launch Xvfb together with the generate script
 # source https://forum.openscad.org/Headless-OpenSCAD-td5187.html
-RUN echo '#!/bin/sh\nXvfb :5 -screen 0 800x600x24 -nolisten tcp & ./generate.sh $1 $2' > ./run_with_gui.sh
+RUN echo '#!/bin/sh\nXvfb :5 -screen 0 800x600x24 -nolisten tcp & ./run.sh $1 $2 $3' > ./run_with_gui.sh
 RUN chmod +x ./run_with_gui.sh
 ENV DISPLAY :5
 ENTRYPOINT [ "./run_with_gui.sh" ]
@@ -47,11 +47,7 @@ ENTRYPOINT [ "./run_with_gui.sh" ]
 #############################
 # 📂 Copy application files #
 #############################
-COPY ./generate-fill.sh ./
-COPY ./generate-model.sh ./
-COPY ./generate.sh ./
-COPY ./generator.scad ./
-# Make them executable
-RUN chmod +x ./generate-model.sh
-RUN chmod +x ./generate-fill.sh
-RUN chmod +x ./generate.sh
+COPY --chmod=0755 ./generate-fill.sh ./
+COPY --chmod=0755 ./generate-model.sh ./
+COPY --chmod=0755 ./run.sh ./
+COPY ./generators ./generators

@@ -24,7 +24,7 @@ RUN apt-get update
 RUN apt-get install -y inkscape
 
 # Download OpenSCAD AppImage
-RUN wget -O ./openscad-nightly --progress=bar:force https://files.openscad.org/snapshots/OpenSCAD-2023.10.15.ai16550-x86_64.AppImage
+RUN wget -O ./openscad-nightly --progress=bar:force https://files.openscad.org/snapshots/OpenSCAD-2024.12.04.ai21522-x86_64.AppImage
 RUN ln ./openscad-nightly /usr/bin/openscad-nightly
 # Alias the AppImage, so it can be ivoked from CLI as 'openscad-nightly'
 RUN chmod a+x /usr/bin/openscad-nightly
@@ -41,7 +41,7 @@ WORKDIR /app
 # source https://forum.openscad.org/Headless-OpenSCAD-td5187.html
 RUN echo '#!/bin/sh\nXvfb :5 -screen 0 800x600x24 -nolisten tcp & ./run.sh $1 $2 $3' > ./run_with_gui.sh
 RUN chmod +x ./run_with_gui.sh
-ENV DISPLAY :5
+ENV DISPLAY=:5
 ENTRYPOINT [ "./run_with_gui.sh" ]
 
 #############################
